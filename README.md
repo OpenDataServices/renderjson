@@ -1,11 +1,8 @@
 Forked version of Renderjson
 ==========
+This is a forked version of [Caldwell's RenderJSON](https://github.com/caldwell/renderjson) to add an extra option.
 
-This is a forked version of [Caldwell's RenderJSON](https://github.com/caldwell/renderjson) to add an extra option:
-
-```.set_default_open([])```
-
-which can be used to supply a list of JSON node names which should be expanded by default. 
+.set_default_open  can be used to supply a list of JSON node names which should be expanded by default. 
 
 This adaptation was developed for us in prototype Open Contracting Data Standard documentation. 
 
