@@ -88,7 +88,6 @@ var module;
 
     function _renderjson(json, indent, dont_indent, show_level, max_string, sort_objects) {
         var my_indent = dont_indent ? "" : indent;
-
         var disclosure = function(open, placeholder, close, type, builder) {
             var content;
             var empty = span(type);
@@ -109,6 +108,7 @@ var module;
             if (show_level > 0)
                 show();
             return el;
+
         };
 
         if (json === null) return themetext(null, my_indent, "keyword", "null");
@@ -150,7 +150,7 @@ var module;
             for (var i in keys) {
                 var k = keys[i];
                 append(os, themetext(null, indent+"    ", "key", '"'+k+'"', "object syntax", ': '),
-                       _renderjson(json[k], indent+"    ", true, show_level-1, max_string, sort_objects),
+                       _renderjson(json[k], indent+"    ", true, ((renderjson.default_open.indexOf(k) > -1) ? show_level + 1 : show_level - 1 ), max_string, sort_objects),
                        k != last ? themetext("syntax", ",") : [],
                        text("\n"));
             }
@@ -181,9 +181,14 @@ var module;
     // Backwards compatiblity. Use set_show_to_level() for new code.
     renderjson.set_show_by_default = function(show) { renderjson.show_to_level = show ? Number.MAX_VALUE : 0;
                                                       return renderjson; };
+                                                      
+    //Added by timgdavies
+    renderjson.set_default_open = function(node_list) { renderjson.default_open = node_list ? node_list : [] ; return renderjson; };
+    
     renderjson.set_icons('⊕', '⊖');
     renderjson.set_show_by_default(false);
     renderjson.set_sort_objects(false);
     renderjson.set_max_string_length("none");
+    renderjson.set_default_open([]);
     return renderjson;
 })();

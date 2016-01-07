@@ -1,5 +1,17 @@
-Renderjson
+Forked version of Renderjson
 ==========
+
+This is a forked version of [Caldwell's RenderJSON](https://github.com/caldwell/renderjson) to add an extra option:
+
+```.set_default_open([])```
+
+which can be used to supply a list of JSON node names which should be expanded by default. 
+
+This adaptation was developed for us in prototype Open Contracting Data Standard documentation. 
+
+
+Original Readme follows
+-----------------------
 
 Render JSON into collapsible, themeable HTML. This library aims to be very
 simple with few options and no external dependencies. It's aimed at debugging
@@ -11,10 +23,6 @@ fast to do the initial render of huge JSON objects, since the only thing
 that renders initially is a single disclosure icon.
 
 
-Live Example
-------------
-
-[A live example can be found here](http://caldwell.github.io/renderjson).
 
 Example
 -------

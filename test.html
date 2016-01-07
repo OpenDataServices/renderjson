@@ -25,196 +25,198 @@
     <script>
 document.getElementById("dest").appendChild(
   renderjson//.set_show_by_default(true)
-            //.set_show_to_level(2)
+            .set_show_to_level(1)
             //.set_sort_objects(true)
             //.set_icons('+', '-')
               .set_max_string_length(100)
-    ([
-// Examples from http://json.org/example.html
-{
-    "glossary": {
-        "title": "example glossary",
-		"GlossDiv": {
-            "title": "S",
-			"GlossList": {
-                "GlossEntry": {
-                    "ID": "SGML",
-					"SortAs": "SGML",
-					"GlossTerm": "Standard Generalized Markup Language",
-					"Acronym": "SGML",
-					"Abbrev": "ISO 8879:1986",
-					"GlossDef": {
-                        "para": "A meta-markup language, used to create markup languages such as DocBook.",
-						"GlossSeeAlso": ["GML", "XML"]
+              .set_default_open(['releases','tag','planning','amount','documents','identifier','address','contactPoint'])
+    (        {
+        "uri":"http://standard.open-contracting.org/examples/releases/ocds-213czf-000-00001-01-planning.json",
+        "publishedDate":"2009-03-15T14:45:00Z",
+        "publisher": {
+                "scheme": "GB-COH",
+                "uid": "09506232",
+                "name": "Open Data Services Co-operative Limited",
+                "uri": "http://standard.open-contracting.org/examples/"
+            },
+        "license":"http://opendatacommons.org/licenses/pddl/1.0/",
+        "publicationPolicy":"https://github.com/open-contracting/sample-data/",
+        "releases":[{
+                "language": "en",
+                "ocid": "ocds-213czf-000-00001",
+                "id": "ocds-213czf-000-00001-01-planning",
+                "date": "2009-03-15T14:45:00Z",
+                "tag": ["planning"],
+                "initiationType": "tender",
+                "buyer": {
+                    "identifier": {
+                        "scheme": "GB-LAC",
+                        "id": "E09000003",
+                        "legalName": "London Borough of Barnet",
+                        "uri": "http://www.barnet.gov.uk/"
                     },
-					"GlossSee": "markup"
+                    "name": "London Borough of Barnet",
+                    "address": {
+                        "streetAddress": "4, North London Business Park, Oakleigh Rd S",
+                        "locality": "London",
+                        "region": "London",
+                        "postalCode": "N11 1NP",
+                        "countryName": "United Kingdom"
+                    },
+                    "contactPoint": {
+                        "name": "Procurement Team",
+                        "email": "procurement-team@example.com",
+                        "telephone": "01234 345 346",
+                        "faxNumber": "01234 345 345",
+                        "url": "http://example.com/contact/"
+                    }
+                },
+                "planning": {
+                    "budget": {
+                        "source": "Highways and Pavements Budget",
+                        "id": "6801ad388f3a38b7740dde20108c58b35984ee91",
+                        "description": "Budget allocation for highway maintenance, aligned with 2015 strategic plan. ",
+                        "amount": {
+                            "amount": 6700000.00,
+                            "currency": "GBP"
+                        },
+                        "project": "Central Junction Cycle Scheme",
+                        "projectID": "SP001",
+                        "uri": "https://openspending.org/uk-barnet-budget/entries/6801ad388f3a38b7740dde20108c58b35984ee91"
+                    },
+                    "rationale": "The 2009 Strategic Plan identifies a need for an improved cycle route in the centre of town.",
+                    "documents": [
+                        {
+                            "id": "0001",
+                            "documentType": "procurementPlan",
+                            "title": "Area Wide Cycle Improvements - Procurement Plan",
+                            "description": "The overall strategic framework for procurement to enhance cycle provision.",
+                            "url": "http://example.com/opencontracting/documents/planning/highways/procurementPlan.pdf",
+                            "datePublished": "2009-01-05T00:00:00Z",
+                            "format": "application/pdf",
+                            "language": "en"
+                        },
+                        {
+                            "id": "0002",
+                            "documentType": "needsAssessment",
+                            "title": "Cycle provision - Needs Assessment",
+                            "description": "Needs assessment for provision for cyclists in the centre of town.",
+                            "url": "http://example.com/opencontracting/documents/ocds-213czf-000-00001/needsAssessment.pdf",
+                            "datePublished": "2009-01-15T00:00:00Z",
+                            "format": "application/pdf",
+                            "language": "en"
+                        }
+                    ]
+                },
+                "tender": {
+                    "id": "ocds-213czf-000-00001-01-planning",
+                    "title": "Planned cycle lane improvements",
+                    "description": "The authority plans to tender for improvements to the cycle lane in early 2010. This notice provides advanced notice of the intention to tender, and details to upcoming consultation events.",
+                    "status": "planned",
+                    "items": [
+                        {
+                            "id": "0001",
+                            "description": "string",
+                            "classification": {
+                                "scheme": "CPV",
+                                "id": "45233130",
+                                "description": "Construction work for highways",
+                                "uri": "http://cpv.data.ac.uk/code-45233130"
+                            },
+                            "additionalClassifications": [
+                                {
+                                    "scheme": "CPV",
+                                    "id": "45233162-2",
+                                    "description": "Cycle path construction work",
+                                    "uri": "http://cpv.data.ac.uk/code-45233162.html"
+                                }
+                            ],
+                            "quantity": 10,
+                            "unit": {
+                                "name": "Miles",
+                                "value": {
+                                    "amount": 100000,
+                                    "currency": "GBP"
+                                }
+                            }
+                        }
+                    ],
+                    "minValue": {
+                        "amount": 500000,
+                        "currency": "GBP"
+                    },
+                    "value": {
+                        "amount": 1000000,
+                        "currency": "GBP"
+                    },
+                    "procurementMethod": "open",
+                    "procurementMethodRationale": "An open competitive tender is required by EU Rules",
+                    "awardCriteria": "bestProposal",
+                    "awardCriteriaDetails": "The best proposal, subject to value for money requirements, will be accepted.",
+                    "tenderPeriod": {
+                        "startDate": "2010-02-01T00:00:00Z"
+                    },
+                    "awardPeriod": {
+                        "startDate": "2010-06-01T00:00:00Z",
+                        "endDate": "2011-06-01T23:59:59Z"
+                    },
+                    "procuringEntity": {
+                        "identifier": {
+                            "scheme": "GB-LAC",
+                            "id": "E09000003",
+                            "legalName": "London Borough of Barnet",
+                            "uri": "http://www.barnet.gov.uk/"
+                        },
+                        "name": "London Borough of Barnet",
+                        "address": {
+                            "streetAddress": "4, North London Business Park, Oakleigh Rd S",
+                            "locality": "London",
+                            "region": "London",
+                            "postalCode": "N11 1NP",
+                            "countryName": "United Kingdom"
+                        },
+                        "contactPoint": {
+                            "name": "Procurement Team",
+                            "email": "procurement-team@example.com",
+                            "telephone": "01234 345 346",
+                            "faxNumber": "01234 345 345",
+                            "url": "http://example.com/contact/"
+                        }
+                    },
+                    "documents": [
+                        {
+                            "id": "0003",
+                            "documentType": "x_consultationDocument",
+                            "title": "Consultation on cycle provision",
+                            "description": "A consultation document inviting citizen input into cycle provision.",
+                            "url": "http://example.com/consultations/cycle-provision/",
+                            "datePublished": "2015-02-15T00:00:00Z",
+                            "dateModified": "2015-02-15T00:00:00Z",
+                            "format": "text/html",
+                            "language": "en"
+                        },
+                        {
+                            "id": "0004",
+                            "documentType": "x_map",
+                            "title": "Map of affected areas",
+                            "description": "A map showing areas affected by the planned highway updates. Available from local libraries.",
+                            "datePublished": "2015-02-15T00:00:00Z",
+                            "format": "offline/print",
+                            "language": "en"
+                        }
+                    ],
+                    "milestones": [
+                        {
+                            "id": "0001",
+                            "title": "Consultation Period",
+                            "description": "A consultation period is open for citizen input to shape the final plans.",
+                            "dueDate": "2015-04-15T17:00:00Z"
+                        }
+                    ]
                 }
-            }
-        }
-    }
-},
-{ "menu": {
-  "id": "file",
-  "value": "File",
-  "popup": {
-    "menuitem": [
-      {"value": "New", "onclick": "CreateNewDoc()"},
-      {"value": "Open", "onclick": "OpenDoc()"},
-      {"value": "Close", "onclick": "CloseDoc()"}
-    ]
-  }
-}},
 
-{ "widget": {
-    "debug": "on",
-    "window": {
-        "title": "Sample Konfabulator Widget",
-        "name": "main_window",
-        "width": 500,
-        "height": 500
-    },
-    "image": { 
-        "src": "Images/Sun.png",
-        "name": "sun1",
-        "hOffset": 250,
-        "vOffset": 250,
-        "alignment": "center"
-    },
-    "text": {
-        "data": "Click Here",
-        "size": 36,
-        "style": "bold",
-        "name": "text1",
-        "hOffset": 250,
-        "vOffset": 100,
-        "alignment": "center",
-        "onMouseUp": "sun1.opacity = (sun1.opacity / 100) * 90;"
-    }
-}},
-
-{"web-app": {
-  "servlet": [   
-    {
-      "servlet-name": "cofaxCDS",
-      "servlet-class": "org.cofax.cds.CDSServlet",
-      "init-param": {
-        "configGlossary:installationAt": "Philadelphia, PA",
-        "configGlossary:adminEmail": "ksm@pobox.com",
-        "configGlossary:poweredBy": "Cofax",
-        "configGlossary:poweredByIcon": "/images/cofax.gif",
-        "configGlossary:staticPath": "/content/static",
-        "templateProcessorClass": "org.cofax.WysiwygTemplate",
-        "templateLoaderClass": "org.cofax.FilesTemplateLoader",
-        "templatePath": "templates",
-        "templateOverridePath": "",
-        "defaultListTemplate": "listTemplate.htm",
-        "defaultFileTemplate": "articleTemplate.htm",
-        "useJSP": false,
-        "jspListTemplate": "listTemplate.jsp",
-        "jspFileTemplate": "articleTemplate.jsp",
-        "cachePackageTagsTrack": 200,
-        "cachePackageTagsStore": 200,
-        "cachePackageTagsRefresh": 60,
-        "cacheTemplatesTrack": 100,
-        "cacheTemplatesStore": 50,
-        "cacheTemplatesRefresh": 15,
-        "cachePagesTrack": 200,
-        "cachePagesStore": 100,
-        "cachePagesRefresh": 10,
-        "cachePagesDirtyRead": 10,
-        "searchEngineListTemplate": "forSearchEnginesList.htm",
-        "searchEngineFileTemplate": "forSearchEngines.htm",
-        "searchEngineRobotsDb": "WEB-INF/robots.db",
-        "useDataStore": true,
-        "dataStoreClass": "org.cofax.SqlDataStore",
-        "redirectionClass": "org.cofax.SqlRedirection",
-        "dataStoreName": "cofax",
-        "dataStoreDriver": "com.microsoft.jdbc.sqlserver.SQLServerDriver",
-        "dataStoreUrl": "jdbc:microsoft:sqlserver://LOCALHOST:1433;DatabaseName=goon",
-        "dataStoreUser": "sa",
-        "dataStorePassword": "dataStoreTestQuery",
-        "dataStoreTestQuery": "SET NOCOUNT ON;select test='test';",
-        "dataStoreLogFile": "/usr/local/tomcat/logs/datastore.log",
-        "dataStoreInitConns": 10,
-        "dataStoreMaxConns": 100,
-        "dataStoreConnUsageLimit": 100,
-        "dataStoreLogLevel": "debug",
-        "maxUrlLength": 500}},
-    {
-      "servlet-name": "cofaxEmail",
-      "servlet-class": "org.cofax.cds.EmailServlet",
-      "init-param": {
-      "mailHost": "mail1",
-      "mailHostOverride": "mail2"}},
-    {
-      "servlet-name": "cofaxAdmin",
-      "servlet-class": "org.cofax.cds.AdminServlet"},
- 
-    {
-      "servlet-name": "fileServlet",
-      "servlet-class": "org.cofax.cds.FileServlet"},
-    {
-      "servlet-name": "cofaxTools",
-      "servlet-class": "org.cofax.cms.CofaxToolsServlet",
-      "init-param": {
-        "templatePath": "toolstemplates/",
-        "log": 1,
-        "logLocation": "/usr/local/tomcat/logs/CofaxTools.log",
-        "logMaxSize": "",
-        "dataLog": 1,
-        "dataLogLocation": "/usr/local/tomcat/logs/dataLog.log",
-        "dataLogMaxSize": "",
-        "removePageCache": "/content/admin/remove?cache=pages&id=",
-        "removeTemplateCache": "/content/admin/remove?cache=templates&id=",
-        "fileTransferFolder": "/usr/local/tomcat/webapps/content/fileTransferFolder",
-        "lookInContext": 1,
-        "adminGroupID": 4,
-        "betaServer": true}}],
-  "servlet-mapping": {
-    "cofaxCDS": "/",
-    "cofaxEmail": "/cofaxutil/aemail/*",
-    "cofaxAdmin": "/admin/*",
-    "fileServlet": "/static/*",
-    "cofaxTools": "/tools/*"},
- 
-  "taglib": {
-    "taglib-uri": "cofax.tld",
-    "taglib-location": "/WEB-INF/tlds/cofax.tld"}}},
-
-{"menu": {
-    "header": "SVG Viewer",
-    "items": [
-        {"id": "Open"},
-        {"id": "OpenNew", "label": "Open New"},
-        null,
-        {"id": "ZoomIn", "label": "Zoom In"},
-        {"id": "ZoomOut", "label": "Zoom Out"},
-        {"id": "OriginalView", "label": "Original View"},
-        null,
-        {"id": "Quality"},
-        {"id": "Pause"},
-        {"id": "Mute"},
-        null,
-        {"id": "Find", "label": "Find..."},
-        {"id": "FindAgain", "label": "Find Again"},
-        {"id": "Copy"},
-        {"id": "CopyAgain", "label": "Copy Again"},
-        {"id": "CopySVG", "label": "Copy SVG"},
-        {"id": "ViewSVG", "label": "View SVG"},
-        {"id": "ViewSource", "label": "View Source"},
-        {"id": "SaveAs", "label": "Save As"},
-        null,
-        {"id": "Help"},
-        {"id": "About", "label": "About Adobe CVG Viewer..."}
-    ]
-}},
-{"empty": {
-    "object": {},
-    "array": []
-}},
-{"really_long": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla posuere, orci quis laoreet luctus, nunc neque condimentum arcu, sed tristique sem erat non libero. Morbi et velit non justo rutrum pulvinar. Nam pellentesque laoreet lacus eget sollicitudin. Quisque maximus mattis nisl, eget tempor nisi pulvinar et. Nullam accumsan sapien sapien, non gravida turpis consectetur non. Etiam in vestibulum neque. Donec porta dui sit amet turpis efficitur laoreet. Duis eu convallis ex, vel volutpat lacus. Donec sit amet nunc a orci fermentum luctus."
-}
-]));
+            }]
+        }));
     </script>
   </body>
 </html>
